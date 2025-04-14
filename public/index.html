@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebSocket Preteky</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>WebSocket Preteky</h1>
+    <div id="game-container">
+        <canvas id="gameCanvas" width="800" height="600"></canvas>
+        <div id="ui">
+            <div id="status-message">Pripájam sa k serveru...</div>
+
+            <!-- Nitro Bar START -->
+            <div id="nitro-container" style="display: none;"> <!-- Initially hidden -->
+                <span>NITRO:</span>
+                <div id="nitro-bar-background">
+                    <div id="nitro-bar-fill"></div>
+                </div>
+            </div>
+            <!-- Nitro Bar END -->
+
+            <div id="player-info"></div>
+            <div id="penalty-indicator" style="display: none; color: orange; font-weight: bold;">PENALIZÁCIA!</div>
+            <div id="lap-choice" style="display: none;">
+                <label for="laps">Zadaj počet kôl (1-10):</label>
+                <input type="number" id="lapsInput" min="1" max="10" value="3">
+                <button id="setLapsButton">Nastaviť</button>
+            </div>
+            <div id="results" style="display: none;">
+                <h2>Výsledky:</h2>
+                <ul id="results-list"></ul>
+                <p>Nová hra sa začne automaticky.</p>
+            </div>
+        </div>
+    </div>
+    <div id="instructions">
+        <h2>Návod</h2>
+        <p>Pripojte sa k hre. Keď sa pripojí druhý hráč, prvý hráč vyberie počet kôl (predvolené sú 3).</p>
+        <p>Ovládanie:</p>
+        <ul>
+            <li><strong>Šípka HORE / W:</strong> Zrýchlenie</li>
+            <li><strong>Šípka DOLE / S:</strong> Brzda / Cúvanie</li>
+            <li><strong>Šípka VĽAVO / A:</strong> Zatáčanie doľava</li>
+            <li><strong>Šípka VPRAVO / D:</strong> Zatáčanie doprava</li>
+            <li><strong>Medzerník (Spacebar):</strong> Aktivácia Nitra (ak máš palivo)</li> <!-- Added Nitro instruction -->
+        </ul>
+        <p>Cieľom je prejsť stanovený počet kôl rýchlejšie ako súper.</p>
+        <p><strong>Pravidlá a Penalizácie:</strong></p>
+        <ul>
+            <li>Ak vyjdeš mimo trate (mimo šedú plochu), budeš dočasne spomalený.</li>
+            <li>Ak narazíš do protihráča zozadu, budeš výrazne spomalený.</li>
+        </ul>
+        <p>Veľa šťastia!</p>
+    </div>
+
+    <script src="client.js"></script>
+</body>
+</html>

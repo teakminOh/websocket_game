@@ -1,0 +1,277 @@
+/* Main Styles */
+:root {
+  --primary-color: #2962ff;
+  --secondary-color: #00b0ff;
+  --accent-color: #ff3d00;
+  --grass-color: #4caf50;
+  --background-color: #f5f5f5;
+  --card-background: #ffffff;
+  --text-color: #333333;
+  --ui-background: rgba(0, 0, 0, 0.75);
+  --ui-text: #ffffff;
+  --border-radius: 8px;
+  --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+body {
+  font-family: 'Segoe UI', Roboto, Oxygen, Ubuntu, 'Open Sans', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--background-color);
+  margin: 0;
+  padding: 20px;
+  color: var(--text-color);
+  line-height: 1.5;
+}
+
+h1 {
+  color: var(--primary-color);
+  margin-bottom: 30px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 700;
+  text-align: center;
+  font-size: 2.5rem;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* Game Container */
+#game-container {
+  position: relative;
+  width: 800px;
+  height: 600px;
+  margin-bottom: 30px;
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  box-shadow: var(--box-shadow);
+  border: none;
+}
+
+canvas {
+  display: block;
+  background-color: var(--grass-color);
+}
+
+/* UI Elements */
+#ui {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  background-color: var(--ui-background);
+  color: var(--ui-text);
+  padding: 15px;
+  border-radius: var(--border-radius);
+  z-index: 10;
+  font-size: 1rem;
+  min-width: 200px;
+  backdrop-filter: blur(2px);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+#status-message {
+  font-weight: 600;
+  margin-bottom: 10px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+#player-info {
+  margin-top: 10px;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+/* Nitro Bar */
+#nitro-container {
+  margin-top: 12px;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+}
+
+#nitro-container span {
+  margin-right: 8px;
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+#nitro-bar-background {
+  flex-grow: 1;
+  height: 14px;
+  background-color: #333;
+  border: 1px solid #555;
+  border-radius: 7px;
+  overflow: hidden;
+}
+
+#nitro-bar-fill {
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(90deg, #00b0ff, #2979ff);
+  box-shadow: inset 0 0 8px rgba(255, 255, 255, 0.5);
+  border-radius: 6px;
+  transition: width 0.15s ease-out;
+}
+
+/* Penalty Indicator */
+#penalty-indicator {
+  padding: 6px 10px;
+  background-color: rgba(255, 152, 0, 0.8);
+  border-radius: var(--border-radius);
+  color: white;
+  text-align: center;
+  font-weight: bold;
+  margin: 8px 0;
+  animation: pulse 1s infinite alternate;
+}
+
+@keyframes pulse {
+  from { opacity: 0.8; }
+  to { opacity: 1; }
+}
+
+/* Lap Choice */
+#lap-choice {
+  margin-top: 15px;
+  padding: 15px;
+  border: none;
+  background-color: var(--ui-background);
+  color: var(--ui-text);
+  border-radius: var(--border-radius);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+#lap-choice label {
+  margin-bottom: 5px;
+  font-weight: 500;
+}
+
+#lapsInput {
+  width: 70px;
+  padding: 8px;
+  border-radius: 4px;
+  border: 1px solid #ddd;
+  font-size: 1rem;
+  text-align: center;
+}
+
+#setLapsButton {
+  padding: 8px 15px;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  margin-top: 5px;
+}
+
+#setLapsButton:hover {
+  background-color: #1e54e0;
+}
+
+/* Results */
+#results {
+  margin-top: 15px;
+  padding: 15px;
+  background-color: var(--ui-background);
+  color: var(--ui-text);
+  border-radius: var(--border-radius);
+}
+
+#results h2 {
+  margin-top: 0;
+  margin-bottom: 12px;
+  color: var(--secondary-color);
+  font-size: 1.3rem;
+}
+
+#results-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 12px 0;
+}
+
+#results-list li {
+  margin-bottom: 8px;
+  padding: 5px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 0.95rem;
+}
+
+/* Instructions */
+#instructions {
+  margin-top: 30px;
+  padding: 25px;
+  border: none;
+  background-color: var(--card-background);
+  max-width: 800px;
+  width: 90%;
+  box-sizing: border-box;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+}
+
+#instructions h2 {
+  margin-top: 0;
+  color: var(--primary-color);
+  border-bottom: 2px solid var(--secondary-color);
+  padding-bottom: 10px;
+  margin-bottom: 15px;
+}
+
+#instructions p {
+  margin-bottom: 15px;
+}
+
+#instructions ul {
+  padding-left: 20px;
+  margin-bottom: 20px;
+}
+
+#instructions li {
+  margin-bottom: 8px;
+}
+
+#instructions strong {
+  color: var(--primary-color);
+}
+
+/* Player Timer Entries */
+.player-timer-entry {
+  margin-bottom: 6px;
+  white-space: nowrap;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.player-timer-entry span {
+  vertical-align: middle;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 850px) {
+  #game-container {
+    width: 95%;
+    height: auto;
+    aspect-ratio: 4/3;
+  }
+  
+  canvas {
+    width: 100%;
+    height: auto;
+  }
+  
+  h1 {
+    font-size: 2rem;
+  }
+  
+  #ui {
+    font-size: 0.9rem;
+  }
+}
