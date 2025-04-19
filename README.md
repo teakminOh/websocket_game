@@ -1,51 +1,52 @@
-# WebSocket Preteky - Online Hra pre Dvoch Hráčov
+# 🏎️ WebSocket Racing - Online Two-Player Game
 
-Toto je jednoduchá online pretekárska hra pre dvoch hráčov vytvorená pomocou WebSocketov, HTML Canvas a Node.js.
+This is a fun, simple online two-player racing game built with WebSockets, HTML Canvas, and Node.js.
 
-## Ako hrať
+## 🎮 How to Play
 
-1.  **Spustenie Servera:**
-    *   Uistite sa, že máte nainštalovaný [Node.js](https://nodejs.org/).
-    *   V termináli prejdite do priečinka projektu (`websocket-race-game`).
-    *   Nainštalujte závislosti: `npm install`
-    *   Spustite server: `node server.js`
-    *   Server bude bežať na porte 8080 (predvolene).
+### 1. **🚦 Starting the Server:**
+- Make sure you have [Node.js](https://nodejs.org/) installed.
+- Open your terminal and navigate to the project folder (`websocket-race-game`).
+- Install dependencies: `npm install`
+- Start the server: `node server.js`
+- The server runs by default on port `8080`.
 
-2.  **Pripojenie Hráčov:**
-    *   Otvorte súbor `public/index.html` vo vašom webovom prehliadači (napr. dvojklikom alebo cez lokálny web server). Hra sa pokúsi pripojiť k `ws://localhost:8080` (alebo zodpovedajúcej adrese, ak server beží inde).
-    *   Otvorte tú istú adresu v druhom okne prehliadača alebo na druhom počítači v rovnakej sieti.
-    *   Hra je určená pre presne dvoch hráčov. Prvý pripojený hráč bude mať modrú farbu, druhý červenú.
+### 2. **🔗 Connecting Players:**
+- Open `public/index.html` in your web browser (double-click the file or use a local web server). The game attempts to connect to `ws://localhost:8080`.
+- Open the same address in another browser window or on another computer within the same network.
+- The game supports exactly two players. The first connected player will be blue, the second one red.
 
-3.  **Nastavenie Hry:**
-    *   Keď sa pripoja obaja hráči, hráč 1 (modrý) dostane výzvu na zadanie počtu kôl (1-10). Predvolená hodnota sú 3 kolá.
-    *   Po potvrdení počtu kôl sa začne krátke odpočítavanie (3 sekundy).
+### 3. **⚙️ Game Setup:**
+- Once both players connect, Player 1 (blue) will set the number of laps (1-10). The default number is 3 laps.
+- A short countdown (3 seconds) begins after confirming the number of laps.
 
-4.  **Ovládanie:**
-    *   Použite nasledujúce klávesy na ovládanie vášho vozidla:
-        *   **Šípka HORE / W:** Zrýchlenie dopredu
-        *   **Šípka DOLE / S:** Brzda / Cúvanie
-        *   **Šípka VĽAVO / A:** Zatáčanie doľava
-        *   **Šípka VPRAVO / D:** Zatáčanie doprava
+### 4. **🎮 Controls:**
+- Use these keys to control your vehicle:
+  - **Arrow UP / W:** Accelerate
+  - **Arrow DOWN / S:** Brake / Reverse
+  - **Arrow LEFT / A:** Steer Left
+  - **Arrow RIGHT / D:** Steer Right
 
-5.  **Cieľ Hry:**
-    *   Prejdite stanovený počet kôl čo najrýchlejšie.
-    *   Trať je eliptická. Kolo sa počíta pri prejazde štartovacou/cieľovou čiarou (biela čiara) v správnom smere (proti smeru hodinových ručičiek, začínajúc vpravo).
+### 5. **🏁 Objective:**
+- Complete the set number of laps as quickly as possible.
+- The track is elliptical. A lap counts when passing the start/finish line (white line) in the correct direction (counter-clockwise, starting on the right side).
 
-6.  **Pravidlá a Penalizácie:**
-    *   **Široká Trať:** Trať (šedá plocha) je dostatočne široká na obiehanie.
-    *   **Opustenie Trate:** Ak vyjdete mimo šedú plochu trate, vaše vozidlo bude na krátky čas výrazne spomalené (penalizácia). Počas penalizácie bude okolo vášho vozidla oranžový rámček.
-    *   **Kolízia Zozadu:** Ak narazíte do súpera zozadu, budete penalizovaný (výrazné spomalenie na krátky čas). Snažte sa obiehať bezpečne! Kolízie zboku alebo čelné nie sú penalizované (ale môžu vás spomaliť).
+### 6. **🚧 Rules & Penalties:**
+- **Wide Track:** The track (grey area) is wide enough for overtaking.
+- **Off-track Penalty:** Leaving the grey track area significantly slows down your car for a short time. An orange border around your car indicates this penalty.
+- **Rear-end Collision Penalty:** Colliding with your opponent from behind triggers a significant slowdown penalty. Overtake safely! Side or frontal collisions aren't penalized but will slow you down.
 
-7.  **Koniec Hry:**
-    *   Hra končí, keď obaja hráči dokončia stanovený počet kôl.
-    *   Po skončení hry sa zobrazia výsledné časy oboch hráčov.
-    *   Ak sa jeden z hráčov odpojí počas hry, hra sa okamžite skončí.
-    *   Server sa po krátkej chvíli (cca 10 sekúnd po zobrazení výsledkov) automaticky resetuje a je pripravený na novú hru (hráči sa musia znova pripojiť otvorením `index.html`).
+### 7. **🏅 End of the Game:**
+- The game ends when both players complete the set laps.
+- Final lap times for both players are displayed after finishing.
+- If a player disconnects mid-race, the game immediately ends.
+- The server automatically resets approximately 10 seconds after displaying results, preparing for the next race (players must reconnect by reopening `index.html`).
 
-## Technológie
+## 🚀 Technologies
 
-*   **Backend:** Node.js, `ws` (WebSocket knižnica)
-*   **Frontend:** HTML, CSS, JavaScript (Canvas API pre kreslenie)
-*   **Komunikácia:** WebSockets
+- **Backend:** Node.js, `ws` (WebSocket library)
+- **Frontend:** HTML, CSS, JavaScript (Canvas API for graphics)
+- **Communication:** WebSockets
 
-Veľa šťastia a zábavy pri pretekaní!
+Good luck and have fun racing! 🏁🎉
+
